@@ -3,7 +3,7 @@ import { StyleSheet, Platform } from 'react-native';
 export default StyleSheet.create({
   line: {
     position: 'absolute',
-    bottom: 0,
+    bottom: 1,
 
     ...Platform.select({
       android: { borderRadius: Number.EPSILON },
