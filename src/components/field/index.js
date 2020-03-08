@@ -119,6 +119,8 @@ export default class TextField extends PureComponent {
 
     containerStyle: (ViewPropTypes || View.propTypes).style,
     inputContainerStyle: (ViewPropTypes || View.propTypes).style,
+
+    onTouchStart: PropTypes.func,
   };
 
   static inputContainerStyle = styles.inputContainer;
@@ -648,6 +650,7 @@ export default class TextField extends PureComponent {
       errorColor,
       containerStyle,
       inputContainerStyle: inputContainerStyleOverrides,
+      onTouchStart,
     } = this.props;
 
     let restricted = this.isRestricted();
@@ -663,6 +666,7 @@ export default class TextField extends PureComponent {
 
     let containerProps = {
       style: containerStyle,
+      onTouchStart,
       onStartShouldSetResponder: () => true,
       onResponderRelease: this.onPress,
       pointerEvents: !disabled && editable?
