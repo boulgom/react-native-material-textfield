@@ -522,11 +522,11 @@ export default class TextField extends PureComponent {
     );
   }
 
-  renderAccessory(prop) {
+  renderAccessory(prop, props) {
     let { [prop]: renderAccessory } = this.props;
 
     return 'function' === typeof renderAccessory?
-      renderAccessory():
+      renderAccessory(props):
       null;
   }
 
@@ -706,11 +706,19 @@ export default class TextField extends PureComponent {
       disabledLineType,
     };
 
+    let accessoryProps = {
+      baseColor,
+      tintColor,
+      errorColor,
+
+      focusAnimation,
+    };
+
     return (
       <View {...containerProps}>
         <Animated.View {...inputContainerProps}>
           {this.renderLine(lineProps)}
-          {this.renderAccessory('renderLeftAccessory')}
+          {this.renderAccessory('renderLeftAccessory', accessoryProps)}
 
           <View style={styles.stack}>
             {this.renderLabel(styleProps)}
@@ -722,7 +730,7 @@ export default class TextField extends PureComponent {
             </View>
           </View>
 
-          {this.renderAccessory('renderRightAccessory')}
+          {this.renderAccessory('renderRightAccessory', accessoryProps)}
         </Animated.View>
 
         {this.renderHelper()}
