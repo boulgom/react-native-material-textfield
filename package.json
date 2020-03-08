@@ -1,4 +1,5 @@
 {
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
   "name": "react-native-material-textfield",
   "version": "0.16.1",
   "license": "BSD-3-Clause",
